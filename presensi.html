@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presensi GPS</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding-top: 50px; background: #f4f4f9; }
+        .loader { border: 5px solid #f3f3f3; border-top: 5px solid #3498db; border-radius: 50%; width: 40px; height: 40px; animation: spin 2s linear infinite; margin: 20px auto; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <h2>Sistem Presensi GPS</h2>
+    <div class="loader"></div>
+    <p id="status">Sedang mengambil lokasi, mohon tunggu...</p>
+
+    <script>
+        // LINK PRE-FILLED ANDA
+        const baseFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSf2jBMgAsVV9dGR31-UUYrAFInaKRoCE2aUppTUmxyCc8Q/viewform?usp=pp_url&entry.15273089=";
+
+        function getGPS() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    const coords = lat + "," + lon;
+                    
+                    // Redirect langsung ke Google Form dengan koordinat
+                    window.location.href = baseFormUrl + coords;
+                }, function(error) {
+                    document.getElementById('status').innerHTML = "<b>Gagal:</b> Harap aktifkan GPS dan klik 'Izinkan' akses lokasi.";
+                }, { enableHighAccuracy: true });
+            } else {
+                alert("Browser Anda tidak mendukung GPS.");
+            }
+        }
+
+        // Jalankan fungsi saat halaman terbuka
+        window.onload = getGPS;
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presensi GPS</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding-top: 50px; background: #f4f4f9; }
+        .loader { border: 5px solid #f3f3f3; border-top: 5px solid #3498db; border-radius: 50%; width: 40px; height: 40px; animation: spin 2s linear infinite; margin: 20px auto; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <h2>Sistem Presensi GPS</h2>
+    <div class="loader"></div>
+    <p id="status">Sedang mengambil lokasi, mohon tunggu...</p>
+
+    <script>
+        // LINK PRE-FILLED ANDA
+        const baseFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSf2jBMgAsVV9dGR31-UUYrAFInaKRoCE2aUppTUmxyCc8Q/viewform?usp=pp_url&entry.15273089=";
+
+        function getGPS() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    const coords = lat + "," + lon;
+                    
+                    // Redirect langsung ke Google Form dengan koordinat
+                    window.location.href = baseFormUrl + coords;
+                }, function(error) {
+                    document.getElementById('status').innerHTML = "<b>Gagal:</b> Harap aktifkan GPS dan klik 'Izinkan' akses lokasi.";
+                }, { enableHighAccuracy: true });
+            } else {
+                alert("Browser Anda tidak mendukung GPS.");
+            }
+        }
+
+        // Jalankan fungsi saat halaman terbuka
+        window.onload = getGPS;
+    </script>
+</body>
+</html>
